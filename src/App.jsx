@@ -1,3 +1,5 @@
+import PaginationDemo from "./components/PaginationDemo";
+import DebounceSearchDemo from "./components/DebounceSearchDemo";
 import "./App.css";
 
 export default function App() {
@@ -6,6 +8,10 @@ export default function App() {
       {/* Lab heading */}
       <h1>Lab 10.2 - Custom Hooks</h1>
       <p>Pagination and Debounce Demo</p>
+
+      {/* Demo components */}
+      <PaginationDemo />
+      <DebounceSearchDemo />
     </main>
   );
 }
