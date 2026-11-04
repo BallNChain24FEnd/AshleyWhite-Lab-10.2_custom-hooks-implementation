@@ -1,9 +1,28 @@
+import { useState } from "react";
+import useDebounce from "../hooks/useDebounce";
+
 export default function DebounceSearchDemo() {
+  // Search input state
+  const [search, setSearch] = useState("");
+
+  // Use debounce hook
+  const debouncedValue = useDebounce(search, 500);
+
   return (
     <section>
-      {/* Search heading */}
       <h2>Debounce Search Demo</h2>
-      <p>Search features...</p>
+
+      {/* Search input */}
+      <input
+        type="text"
+        placeholder="Type to search..."
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
+
+      {/* Display values */}
+      <p>Current Input: {search}</p>
+      <p>Debounced Value (after 500ms): {debouncedValue}</p>
     </section>
   );
 }
