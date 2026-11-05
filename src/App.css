@@ -1,12 +1,91 @@
-/* Main layout */
+/* Main app layout */
 #root {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+/* Main heading */
+main > h1,
+main > p {
   text-align: center;
 }
 
-/* Lab heading */
-h1 {
-  margin-bottom: 1rem;
+/* Demo sections */
+section {
+  background-color: white;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Section headings */
+h2 {
+  color: #2563eb;
+  margin-top: 0;
+}
+
+/* Inputs and dropdowns */
+input[type="text"],
+select {
+  padding: 10px;
+  margin: 8px 4px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Search input */
+input[type="text"] {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 14px;
+  margin: 4px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+/* Button hover */
+button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Disabled buttons */
+button:disabled {
+  background-color: #cbd5e1;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+/* List layout */
+ul {
+  padding-left: 24px;
+}
+
+li {
+  padding: 4px 0;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  button {
+    padding: 8px 10px;
+  }
 }
