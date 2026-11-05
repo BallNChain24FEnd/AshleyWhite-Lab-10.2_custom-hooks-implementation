@@ -1,16 +1,61 @@
-# React + Vite
+# Lab 10.2 — Custom Hooks Implementation
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Project Description
+A React JavaScript application demonstrating two reusable custom hooks: usePagination and useDebounce. Built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
+1. **Pagination:** Displays items across multiple pages with Previous, Next, and numbered page buttons.
+2. **Custom Page Settings:** Allows users to change items per page and test empty lists.
+3. **Debounced Search:** Delays search results until the user stops typing.
+4. **Adjustable Delay:** Supports 300ms, 500ms, and 1000ms debounce settings.
+5. **Responsive Design:** Provides a clean layout for desktop and mobile devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies
+- React
+- JavaScript (JSX)
+- Vite
+- CSS
+- Git 
+- GitHub
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies:
 
-## Expanding the Oxlint configuration
+`npm install`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Start the development server:
+
+`npm run dev`
+
+Build the project:
+
+`npm run build`
+
+## Custom Hooks
+- `usePagination.js` — Manages page numbers, item indexes, and navigation.
+- `useDebounce.js` — Delays value updates using useEffect and timer cleanup.
+
+## Custom Reflection Questions
+
+**1. What did you learn about custom hooks?**
+
+I learned how to create reusable hooks that manage state and logic separately from components.
+
+**2. How did you handle pagination?**
+
+I used useState, Math.ceil, and navigation functions to calculate and change pages.
+
+**3. Why is cleanup important in useDebounce?**
+
+Using clearTimeout prevents old timers from updating the value when the user continues typing.
+
+**4. What challenges did you face?**
+
+Handling page boundaries and understanding how useEffect dependencies affect the debounce timer.
+
+## Resources
+- [React Documentation](https://react.dev/)
+- [Vite Documentation](https://vite.dev/guide/)
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [Google Search](https://www.google.com/)
