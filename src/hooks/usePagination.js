@@ -1,13 +1,24 @@
 import { useState } from "react";
 
 export default function usePagination(totalItems, itemsPerPage = 10, initialPage = 1) {
+  // Validate item counts
+  const safeTotalItems = Number.isFinite(totalItems)
+    ? Math.max(0, Math.floor(totalItems))
+    : 0;
+
+  const safeItemsPerPage = Number.isFinite(itemsPerPage)
+    ? Math.max(1, Math.floor(itemsPerPage))
+    : 10;
+
   // Calculate total pages
-  const safeTotalItems = Math.max(0, totalItems);
-  const safeItemsPerPage = Math.max(1, itemsPerPage);
   const totalPages = Math.ceil(safeTotalItems / safeItemsPerPage);
 
   // Current page state
-  const [currentPage, setCurrentPage] = useState(initialPage);
+  const [currentPage, setCurrentPage] = useState(() => {
+    return Number.isFinite(initialPage)
+      ? Math.max(1, Math.floor(initialPage))
+      : 1;
+  });
 
   // Keep page within range
   const safeCurrentPage = Math.min(
@@ -34,7 +45,7 @@ export default function usePagination(totalItems, itemsPerPage = 10, initialPage
     if (!Number.isFinite(pageNumber)) return;
 
     const newPage = Math.min(
-      Math.max(1, Math.trunc(pageNumber)),
+      Math.max(1, Math.floor(pageNumber)),
       Math.max(1, totalPages)
     );
 
@@ -53,7 +64,7 @@ export default function usePagination(totalItems, itemsPerPage = 10, initialPage
 
   // Check navigation
   const canNextPage = safeCurrentPage < totalPages;
-  const canPrevPage = safeCurrentPage > 1;
+  const canPrevPage = safeCurrentPage > 1 && totalPages > 0;
 
   return {
     currentPage: safeCurrentPage,
